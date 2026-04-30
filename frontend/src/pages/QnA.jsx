@@ -52,7 +52,7 @@ function QnA() {
             onClick={() => {
               const ans = prompt("Enter answer");
               if (ans) {
-                axios.post(`http://localhost:5000/api/questions/${q.id}/answer`, { answer: ans })
+                axios.post(`https://college-platform-4xz6.onrender.com/api/questions/${q.id}/answer`, { answer: ans })
                   .then(fetchQuestions)
                   .catch(err => console.error("ANSWER ERROR:", err));
               }
