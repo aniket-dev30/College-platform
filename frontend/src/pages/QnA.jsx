@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+const BASE_URL = "https://college-platform-4xz6.onrender.com/api";
+
 function QnA() {
   const [questions, setQuestions] = useState([]);
   const [text, setText] = useState("");
 
   const fetchQuestions = () => {
-    axios.get("http://localhost:5000/api/questions")
+    axios.get(`${BASE_URL}/questions`)
       .then(res => setQuestions(res.data))
       .catch(err => console.error("GET ERROR:", err));
   };
@@ -18,7 +20,7 @@ function QnA() {
   const addQuestion = () => {
     if (!text.trim()) return;
 
-    axios.post("http://localhost:5000/api/questions", { text })
+    axios.post(`${BASE_URL}/questions`, { text })
       .then(() => {
         setText("");
         fetchQuestions();
@@ -52,7 +54,7 @@ function QnA() {
             onClick={() => {
               const ans = prompt("Enter answer");
               if (ans) {
-                axios.post(`https://college-platform-4xz6.onrender.com/api/questions/${q.id}/answer`, { answer: ans })
+                axios.post(`${BASE_URL}/questions/${q.id}/answer`, { answer: ans })
                   .then(fetchQuestions)
                   .catch(err => console.error("ANSWER ERROR:", err));
               }
