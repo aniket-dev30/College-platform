@@ -124,12 +124,6 @@ college-platform/
 
 ---
 
-## 🎥 Demo Video
-
-(Attach your Loom link here)
-
----
-
 ## 👨‍💻 Author
 
 * GitHub: https://github.com/aniket-dev30
